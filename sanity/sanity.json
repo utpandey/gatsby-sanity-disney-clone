@@ -1,30 +1,51 @@
 {
-  "root": true,
-  "project": {
-    "name": "iiq"
-  },
-  "api": {
-    "projectId": "dbthgwkf",
-    "dataset": "clone--production"
-  },
-  "plugins": [
-    "@sanity/base",
-    "@sanity/default-layout",
-    "@sanity/default-login",
-    "@sanity/desk-tool",
-    "@sanity/google-maps-input"
-  ],
-  "env": {
-    "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
-    }
-  },
-  "parts": [
-    {
-      "name": "part:@sanity/base/schema",
-      "path": "./schemas/schema"
-    }
-  ]
+    "root": true,
+    "project": {
+        "name": "sanity-gatsbyjs"
+    },
+    "api": {
+        "projectId": "dbthgwkf",
+        "dataset": "clone--production"
+    },
+    "plugins": [
+        "@sanity/base",
+        "@sanity/default-layout",
+        "@sanity/default-login",
+        "@sanity/desk-tool",
+        "@sanity/google-maps-input",
+        "@sanity/components",
+        "@sanity/dashboard",
+        "dashboard-widget-structure-menu",
+        "dashboard-widget-document-list",
+        "dashboard-widget-netlify",
+        "@sanity/studio-hints"
+    ],
+    "env": {
+        "development": {
+            "plugins": [
+                "@sanity/vision"
+            ]
+        }
+    },
+    "parts": [{
+            "name": "part:@sanity/base/schema",
+            "path": "./schemas/schema.js"
+        },
+        {
+            "implements": "part:@sanity/base/theme/variables/override-style",
+            "path": "./src/styles/variables.css"
+        },
+        {
+            "name": "part:@sanity/desk-tool/structure",
+            "path": "./src/structure/deskStructure.js"
+        },
+        {
+            "implements": "part:@sanity/dashboard/config",
+            "path": "./src/dashboardConfig.js"
+        },
+        {
+            "implements": "part:@sanity/default-layout/studio-hints-config",
+            "path": "./src/studioHintsConfig.js"
+        }
+    ]
 }
