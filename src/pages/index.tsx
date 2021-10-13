@@ -1,6 +1,11 @@
 import * as React from "react"
 import "../styles/base/_base.scss"
 import { useStaticQuery, graphql } from "gatsby"
+import {
+  SanityVideo,
+  AllVideosQuery,
+  SanityVideoEdge,
+} from "../../graphql-types"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -9,34 +14,46 @@ import Seo from "../components/seo"
 import { Base } from "../components/organisms/Base"
 import GraphQLErrorList from "../components/atoms/graphqlError"
 
-// export const dat = graphql`
-//     query sanityAuthor {
-//       sanityAuthor {
-//         _id
-//            name
-//          }
-//     }
-//   `
-//   console.log(dat)
+export const allVideos = graphql`
+  query AllVideos {
+    allSanityVideo {
+      nodes {
+        _createdAt
+        _id
+        title
+        tags
+        isSeen
+        description
+        slug {
+          current
+        }
+        thumbnail {
+          asset {
+            url
+            assetId
+          }
+        }
+        video {
+          asset {
+            assetId
+            url
+          }
+        }
+      }
+    }
+  }
+`
+console.log(allVideos)
 
-const IndexPage = ({data}:any) => {
- console.log(data)
+interface IProps {
+  data: AllVideosQuery
+}
 
-  return (
-    <Base />
-    // <Layout>
-    //   <Seo title="Home" />
-    //   <StaticImage
-    //     src="../images/gatsby-astronaut.png"
-    //     width={300}
-    //     quality={95}
-    //     formats={["auto", "webp", "avif"]}
-    //     alt="A Gatsby astronaut"
-    //     style={{ marginBottom: `1.45rem` }}
-    //   />
-    //     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    // </Layout>
-  )
+const IndexPage = ({ data }: IProps) => {
+  console.log(data)
+  console.log(data?.allSanityVideo?.nodes)
+
+  return <div className="">sadsad</div>
 }
 
 export default IndexPage
