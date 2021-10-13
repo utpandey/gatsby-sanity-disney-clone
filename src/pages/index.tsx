@@ -9,15 +9,15 @@ import Seo from "../components/seo"
 import { Base } from "../components/organisms/Base"
 import GraphQLErrorList from "../components/atoms/graphqlError"
 
-export const dat = graphql`
-    query sanityAuthor {
-      sanityAuthor {
-        _id
-           name
-         }
-    }
-  `
-  console.log(dat)
+// export const dat = graphql`
+//     query sanityAuthor {
+//       sanityAuthor {
+//         _id
+//            name
+//          }
+//     }
+//   `
+//   console.log(dat)
 
 const IndexPage = ({data}:any) => {
  console.log(data)

@@ -67,17 +67,17 @@ S.list()
         // .icon(MdLocalOffer)
         // .schemaType('category')
         // .child(S.documentTypeList('category').title('Categories')),
-        S.listItem()
-        .title('Landing Page')
-        .icon(MdPages)
-        .schemaType('page')
-        .child(
-            S.editor()
-            .id('page')
-            .title('Landing Page')
-            .schemaType('page')
-            .documentId('page')
-        ),
+        // S.listItem()
+        // .title('Landing Page')
+        // .icon(MdPages)
+        // .schemaType('page')
+        // .child(
+        //     S.editor()
+        //     .id('page')
+        //     .title('Landing Page')
+        //     .schemaType('page')
+        //     .documentId('page')
+        // ),
         // .child(S.documentTypeList('page').title('Page')),
         // `S.documentTypeListItems()` returns an array of all the document types
         // defined in schema.js. We filter out those that we have

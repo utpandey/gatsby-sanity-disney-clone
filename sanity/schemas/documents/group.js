@@ -1,7 +1,10 @@
+import {MdGroup as icon} from 'react-icons/md'
+
 export default {
     name: 'group',
     type: 'document',
     title: 'Group',
+    icon,
     fields: [{
             name: 'title',
             type: 'string',
@@ -11,10 +14,10 @@ export default {
             title: 'Slug',
             name: 'slug',
             type: 'slug',
-            // options: {
-            //     source: 'title',
-            //     // slugify: myAsyncSlugifier
-            // }
+            options: {
+                source: 'title',
+                // slugify: myAsyncSlugifier
+            }
         },
         {
             name: 'videoRef',
@@ -30,5 +33,18 @@ export default {
                 // to: [{ type: 'video' }],
         },
     ],
-
+    preview: {
+        select: {
+            title: 'title',
+            slug: 'slug',
+        },
+        prepare(selection) {
+            const {title, slug} = selection;
+            return {
+                title: selection.title,
+                slug: selection.slug,
+                // reference: selection.reference
+            }
+        }
+    }
 }
