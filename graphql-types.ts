@@ -1,7 +1,5 @@
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   /** The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID. */
@@ -404,7 +402,7 @@ export type SiteBuildMetadataBuildTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-export type GatsbyImageFormat =
+export type GatsbyImageFormat = 
   | 'NO_CHANGE'
   | 'AUTO'
   | 'JPG'
@@ -412,12 +410,12 @@ export type GatsbyImageFormat =
   | 'WEBP'
   | 'AVIF';
 
-export type GatsbyImageLayout =
+export type GatsbyImageLayout = 
   | 'FIXED'
   | 'FULL_WIDTH'
   | 'CONSTRAINED';
 
-export type GatsbyImagePlaceholder =
+export type GatsbyImagePlaceholder = 
   | 'DOMINANT_COLOR'
   | 'TRACED_SVG'
   | 'BLURRED'
@@ -882,12 +880,12 @@ export type SanityImageAssetGatsbyImageDataArgs = {
   fit?: Maybe<SanityImageFit>;
 };
 
-export type SanityGatsbyImagePlaceholder =
+export type SanityGatsbyImagePlaceholder = 
   | 'DOMINANT_COLOR'
   | 'BLURRED'
   | 'NONE';
 
-export type SanityImageFit =
+export type SanityImageFit = 
   | 'CLIP'
   | 'CROP'
   | 'FILL'
@@ -1165,7 +1163,7 @@ export type SanityResolveReferencesConfiguration = {
   maxDepth: Scalars['Int'];
 };
 
-export type ImageFormat =
+export type ImageFormat = 
   | 'NO_CHANGE'
   | 'AUTO'
   | 'JPG'
@@ -1173,19 +1171,19 @@ export type ImageFormat =
   | 'WEBP'
   | 'AVIF';
 
-export type ImageFit =
+export type ImageFit = 
   | 'COVER'
   | 'CONTAIN'
   | 'FILL'
   | 'INSIDE'
   | 'OUTSIDE';
 
-export type ImageLayout =
+export type ImageLayout = 
   | 'FIXED'
   | 'FULL_WIDTH'
   | 'CONSTRAINED';
 
-export type ImageCropFocus =
+export type ImageCropFocus = 
   | 'CENTER'
   | 'NORTH'
   | 'NORTHEAST'
@@ -1204,7 +1202,7 @@ export type DuotoneGradient = {
   opacity?: Maybe<Scalars['Int']>;
 };
 
-export type PotraceTurnPolicy =
+export type PotraceTurnPolicy = 
   | 'TURNPOLICY_BLACK'
   | 'TURNPOLICY_WHITE'
   | 'TURNPOLICY_LEFT'
@@ -1357,7 +1355,7 @@ export type ImageSharpFluid = {
   presentationHeight: Scalars['Int'];
 };
 
-export type ImagePlaceholder =
+export type ImagePlaceholder = 
   | 'DOMINANT_COLOR'
   | 'TRACED_SVG'
   | 'BLURRED'
@@ -2136,7 +2134,7 @@ export type PageInfo = {
   totalCount: Scalars['Int'];
 };
 
-export type FileFieldsEnum =
+export type FileFieldsEnum = 
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -2488,7 +2486,7 @@ export type FileSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type SortOrderEnum =
+export type SortOrderEnum = 
   | 'ASC'
   | 'DESC';
 
@@ -2537,7 +2535,7 @@ export type DirectoryEdge = {
   previous?: Maybe<Directory>;
 };
 
-export type DirectoryFieldsEnum =
+export type DirectoryFieldsEnum = 
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -2795,7 +2793,7 @@ export type SiteEdge = {
   previous?: Maybe<Site>;
 };
 
-export type SiteFieldsEnum =
+export type SiteFieldsEnum = 
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
@@ -2995,7 +2993,7 @@ export type SiteFunctionEdge = {
   previous?: Maybe<SiteFunction>;
 };
 
-export type SiteFunctionFieldsEnum =
+export type SiteFunctionFieldsEnum = 
   | 'functionRoute'
   | 'pluginName'
   | 'originalAbsoluteFilePath'
@@ -3292,7 +3290,7 @@ export type SitePageEdge = {
   previous?: Maybe<SitePage>;
 };
 
-export type SitePageFieldsEnum =
+export type SitePageFieldsEnum = 
   | 'path'
   | 'component'
   | 'internalComponentName'
@@ -3585,7 +3583,7 @@ export type SitePluginEdge = {
   previous?: Maybe<SitePlugin>;
 };
 
-export type SitePluginFieldsEnum =
+export type SitePluginFieldsEnum = 
   | 'resolve'
   | 'name'
   | 'version'
@@ -3818,7 +3816,7 @@ export type SiteBuildMetadataEdge = {
   previous?: Maybe<SiteBuildMetadata>;
 };
 
-export type SiteBuildMetadataFieldsEnum =
+export type SiteBuildMetadataFieldsEnum = 
   | 'buildTime'
   | 'id'
   | 'parent___id'
@@ -4218,7 +4216,7 @@ export type SanityAccountEdge = {
   previous?: Maybe<SanityAccount>;
 };
 
-export type SanityAccountFieldsEnum =
+export type SanityAccountFieldsEnum = 
   | '_id'
   | '_type'
   | '_createdAt'
@@ -4591,7 +4589,7 @@ export type SanityGroupEdge = {
   previous?: Maybe<SanityGroup>;
 };
 
-export type SanityGroupFieldsEnum =
+export type SanityGroupFieldsEnum = 
   | '_id'
   | '_type'
   | '_createdAt'
@@ -5016,7 +5014,7 @@ export type SanityMovieEdge = {
   previous?: Maybe<SanityMovie>;
 };
 
-export type SanityMovieFieldsEnum =
+export type SanityMovieFieldsEnum = 
   | '_id'
   | '_type'
   | '_createdAt'
@@ -5393,7 +5391,7 @@ export type SanityPersonEdge = {
   previous?: Maybe<SanityPerson>;
 };
 
-export type SanityPersonFieldsEnum =
+export type SanityPersonFieldsEnum = 
   | '_id'
   | '_type'
   | '_createdAt'
@@ -5649,7 +5647,7 @@ export type SanityFileAssetEdge = {
   previous?: Maybe<SanityFileAsset>;
 };
 
-export type SanityFileAssetFieldsEnum =
+export type SanityFileAssetFieldsEnum = 
   | '_id'
   | '_type'
   | '_createdAt'
@@ -5852,7 +5850,7 @@ export type SanityImageAssetEdge = {
   previous?: Maybe<SanityImageAsset>;
 };
 
-export type SanityImageAssetFieldsEnum =
+export type SanityImageAssetFieldsEnum = 
   | '_id'
   | '_type'
   | '_createdAt'
@@ -6126,7 +6124,7 @@ export type SanityScreeningEdge = {
   previous?: Maybe<SanityScreening>;
 };
 
-export type SanityScreeningFieldsEnum =
+export type SanityScreeningFieldsEnum = 
   | '_id'
   | '_type'
   | '_createdAt'
@@ -6535,7 +6533,7 @@ export type SanityVideoEdge = {
   previous?: Maybe<SanityVideo>;
 };
 
-export type SanityVideoFieldsEnum =
+export type SanityVideoFieldsEnum = 
   | '_id'
   | '_type'
   | '_createdAt'
@@ -6939,7 +6937,7 @@ export type ImageSharpEdge = {
   previous?: Maybe<ImageSharp>;
 };
 
-export type ImageSharpFieldsEnum =
+export type ImageSharpFieldsEnum = 
   | 'fixed___base64'
   | 'fixed___tracedSVG'
   | 'fixed___aspectRatio'
@@ -7115,8 +7113,14 @@ export type AllVideosQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllVideosQuery = { allSanityVideo: { nodes: Array<(
       Pick<SanityVideo, '_createdAt' | '_id' | 'title' | 'tags' | 'isSeen' | 'description'>
-      & { slug?: Maybe<Pick<SanitySlug, 'current'>>, thumbnail?: Maybe<{ asset?: Maybe<Pick<SanityImageAsset, 'url' | 'assetId'>> }>, video?: Maybe<{ asset?: Maybe<Pick<SanityFileAsset, 'assetId' | 'url'>> }> }
-    )> } };
+      & { slug?: Maybe<Pick<SanitySlug, 'current'>>, thumbnail?: Maybe<{ asset?: Maybe<Pick<SanityImageAsset, 'url' | 'assetId'>> }>, video?: Maybe<(
+        Pick<SanityFile, '_key'>
+        & { asset?: Maybe<Pick<SanityFileAsset, 'assetId' | 'url'>> }
+      )> }
+    )> }, sanityAccount?: Maybe<(
+    Pick<SanityAccount, 'username'>
+    & { avatar?: Maybe<{ asset?: Maybe<Pick<SanityImageAsset, 'url' | 'assetId'>> }> }
+  )> };
 
 export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
