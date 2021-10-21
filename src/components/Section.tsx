@@ -17,7 +17,9 @@ interface IProps {
 
 const Section = ({ genre, videos }: IProps) => {
   console.log(videos)
-
+  videos.map((item:any) => {
+    console.log(item?.video?.asset?.assetId)
+  })
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -73,9 +75,14 @@ const Section = ({ genre, videos }: IProps) => {
             > */}
       <div className="row">
         <div className="row__inner flex flex-row">
-          {videos.map(video => (
-            <a key={video?._key} href={`/video/${video?.slug?.current}`}>
-              <Card thumbnail={video?.thumbnail} />
+          {videos.map((video, i) => (
+            i === 0 ?
+            <a key={video?.video?.asset?.assetId} href={`/video/${video?.slug?.current}`}>
+              <Card thumbnail={video?.thumbnail} isFirst={true}/>
+            </a>
+            :
+            <a key={video?.video?.asset?.assetId} href={`/video/${video?.slug?.current}`}>
+              <Card thumbnail={video?.thumbnail} isFirst={false}/>
             </a>
           ))}
         </div>

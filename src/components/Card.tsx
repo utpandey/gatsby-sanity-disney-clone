@@ -8,11 +8,14 @@ interface IProps {
       assetId: string;
       url: string;
     }
-  }
+  },
+  isFirst?: boolean;
 }
 
-const Card = ({ thumbnail }: IProps) => {
-
+const Card = ({ thumbnail, isFirst }: IProps) => {
+  const transformOriginCls = isFirst ? "tranformOriCls" : "";
+  console.log(isFirst);
+  console.log(transformOriginCls)
   return (
     // <div className="tile pr-0">
     //   <div className="tile__media">
@@ -32,7 +35,7 @@ const Card = ({ thumbnail }: IProps) => {
 
     <div className="card w-full">
       <div className="img-container">
-        <img className="rounded-md"
+        <img className={`rounded-md ` + transformOriginCls}
           // className="card-carousel rounded-xl mr-5 style_prevu_kit origin-center"
           // @ts-ignore
           src={thumbnail?.asset?.url}
