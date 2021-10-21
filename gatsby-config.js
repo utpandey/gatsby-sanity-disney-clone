@@ -16,7 +16,7 @@ module.exports = {
     plugins: [
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-image`,
-        `gatsby-plugin-graphql-codegen`,
+        // `gatsby-plugin-graphql-codegen`,
         {
             resolve: `gatsby-plugin-sass`,
             options: {
@@ -53,12 +53,12 @@ module.exports = {
                 icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
             },
         },
-        {
-            resolve: `gatsby-plugin-postcss`,
-            options: {
-                postCssPlugins: [require("tailwindcss"), require('autoprefixer'), ],
-            },
-        },
+        // {
+        //     resolve: `gatsby-plugin-postcss`,
+        //     options: {
+        //         postCssPlugins: [require("tailwindcss"), require('autoprefixer'), ],
+        //     },
+        // },
         {
             resolve: `gatsby-plugin-purgecss`,
             options: {

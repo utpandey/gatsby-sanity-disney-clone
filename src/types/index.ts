@@ -1,6 +1,6 @@
 import { SanityVideo, SanityAccount } from '../../graphql-types'
 
-export type Genre = 'Animation' | 'Comedy' | `Children's film` | 'Dark Comedy' | 'Drama' | 'War' | 'Action' | 'Science fiction' | 'Adventure' | 'Buddy' | 'Fantasy' | 'Epic' | 'Comedy-drama' | 'Superhero' | 'Animated cartoon' | 'Sports' | 'Horror' | 'Thriller' | 'History' | 'Historical film' | 'Romance' ;
+export type Genre = 'Animation' | 'Recommended for you' | 'Family' | 'Classic' | 'Comedy' | `Children's film` | 'Dark Comedy' | 'Drama' | 'War' | 'Action' | 'Science fiction' | 'Adventure' | 'Buddy' | 'Fantasy' | 'Epic' | 'Comedy-drama' | 'Superhero' | 'Animated cartoon' | 'Sports' | 'Horror' | 'Thriller' | 'History' | 'Historical film' | 'Romance' | 'National-geographic' | 'Pixar' | 'Marvel' | 'Disney' | 'Star-wars';
 
 export interface IIndexProps {
     data: {

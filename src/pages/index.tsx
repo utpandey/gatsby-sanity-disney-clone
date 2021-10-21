@@ -15,6 +15,7 @@ import Seo from "../components/seo"
 import { Base } from "../components/organisms/Base"
 import GraphQLErrorList from "../components/atoms/graphqlError"
 import NavBar from "../components/NavBar"
+import Section from "../components/Section"
 
 export const allVideos = graphql`
   query AllVideos {
@@ -71,18 +72,65 @@ const IndexPage = ({ data }: IIndexProps) => {
     return videos.filter((video: SanityVideo) => video?.tags?.includes(genre))
   }
 
-  const unSeenVideos = (videos: IVideo[]) => {
-    return videos.filter((video: IVideo) => video.isSeen == false || video.isSeen == null)
+  const unSeenVideos = (videos: SanityVideo[]) => {
+    return videos.filter((video: SanityVideo) => video.isSeen == false || video.isSeen == null)
   }
 
-  // console.log('not seen:', videos.filter((video: IVideo) => video.isSeen == false || video.isSeen == null))
+  // console.log('not seen:', videos.filter((video: SanityVideo) => video.isSeen == false || video.isSeen == null))
   console.log(filterVideos(videos, 'Drama'))
   console.log(randomVideo(videos));
   return (
     <>
-      <NavBar account={data?.sanityAccount}/>
-    <div className="">sadsad</div>
+      {/* <Section videos={videos} genre="Drama" key={videos?.length}/> */}
 
+
+      <NavBar account={data?.sanityAccount} />
+      <div className="">
+        {/* <div className="main-video">
+          <img src={randomVideo(videos)?.thumbnail.url}
+                         alt={randomVideo(videos)?.title}/>
+        </div> */}
+
+        {/* <div className="video-feed">
+          <Link to="#disney">
+            <div className="w-1/5 m-1 rounded-xl" id="disney">
+              <img src='/disney-button.png' />
+            </div>
+          </Link>
+          <Link to="#pixar">
+            <div className="w-1/5 m-1 rounded-xl" id="pixar">
+              <img src='/pixar.png' />
+            </div>
+          </Link>
+          <Link to="#star-wars">
+            <div className="w-1/5 m-1 rounded-xl" id="star-wars">
+              <img src='/star-wars-button.png' />
+            </div>
+          </Link>
+          <Link to="#nat-geo">
+            <div className="w-1/5 m-1 rounded-xl" id="nat-geo">
+              <img src='/natgeo-button.png' />
+            </div>
+          </Link>
+          <Link to="#marvel">
+            <div className="w-1/5 m-1 rounded-xl" id="marvel">
+              <img src='/marvel-button.png' />
+            </div>
+          </Link>
+        </div> */}
+        <Section genre='Recommended for you' videos={unSeenVideos(videos)} />
+        <Section genre='Family' videos={filterVideos(videos, 'Family')} />
+        <Section genre='Thriller' videos={filterVideos(videos, 'Thriller')} />
+        <Section genre='Classic' videos={filterVideos(videos, 'Classic')} />
+        <Section id="pixar" genre='Pixar' videos={filterVideos(videos, 'Pixar')} />
+        <Section id="marvel" genre='Marvel' videos={filterVideos(videos, 'Thriller')} />
+        <Section id="nat-geo" genre='National-geographic'
+          videos={filterVideos(videos, 'National-geographic')} />
+        <Section id="disney" genre='Disney' videos={filterVideos(videos, 'Disney')} />
+        <Section id="star-wars" genre='Star-wars' videos={filterVideos(videos, 'Star-wars')} />
+
+
+      </div>
     </>
   )
 }

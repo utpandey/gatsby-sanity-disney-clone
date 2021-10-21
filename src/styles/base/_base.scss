@@ -1,23 +1,196 @@
 html,
 body {
-    font-family: 'Inter', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #13151f;
+  color: #fff;
 }
 
-html {
-    overflow: scroll;
-    overflow-x: hidden;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-::-webkit-scrollbar {
-    width: 0;
-    /* Remove scrollbar space */
-    background: transparent;
-    /* Optional: just make scrollbar invisible */
+.row {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100%;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  overflow: -moz-scrollbars-none; /* Older Firefox versions */
+  &::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    height: 0;
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
 }
 
+.row__inner {
+  // transition: 450ms transform;
+  font-size: 0;
+  white-space: nowrap;
+  margin-top: 20px 0;
+  // padding-bottom: 10px;
+} // Account for OS X scroll bar
 
-/* Optional: show position indicator in red */
+.tile {
+  position: relative;
+  display: inline-block;
+  width: 250ms;
+  height: 141px;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  // transition-delay: .7s;
+  transition: ease-in 300ms all 450ms;
+  // transition: 450ms all;
+  transform-origin: center;
+}
+.tile__img {
+  width: 250px;
+  height: 141px;
+  object-fit: cover;
+}
 
-// ::-webkit-scrollbar-thumb {
-//     background: #FF0000;
-// }
+.tile__details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-size: 10px;
+  opacity: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  transition: 450ms opacity;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: black;
+  }
+  &:after {
+    margin-top: -25px;
+    margin-left: -25px;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ecf0f1;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  &:before {
+    content: "▶";
+    left: 0;
+    width: 100%;
+    font-size: 30px;
+    margin-left: 7px;
+    margin-top: -18px;
+    text-align: center;
+    z-index: 2;
+  }
+}
+
+.tile:hover {
+  opacity: 1;
+  z-index: 2;
+}
+
+.tile__title {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+}
+
+// *
+// * Hover effects
+// *
+
+// We assume when you hover .row, you're also hovering a .tile
+// First, move the whole row towards the left
+.row__inner:hover {
+  // transform: translate3d(62.5, 0, 0);
+}
+.row__inner:hover .card // tile
+{
+  // Fade out every tile
+  // opacity: .3;
+  // And then grow the current tile and make it opaque again
+  &:hover {
+    // animation-delay: 1s;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// And finally move all tiles right of the current tile to the right,
+// so its flush against the hovered tile
+// .tile:hover ~ .tile {
+//   transform: translate3d(125, 0, 0);}
+
+.card {
+  position: relative;
+  margin: 15px 0;
+  width: 250px;
+  height: 130px;
+  margin-right: 10px;
+  border-radius: 6px;
+  // transition-property: all;
+  // transition-duration: 300ms;
+  // transition-delay: 1s;
+  // transform-style:preserve-3d;
+  // transform:perspective(2000px);
+  // transition:1s;
+  // box-shadow:inset 100px 0 50px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+  z-index: 2;
+  opacity: 1;
+  // transform:perspective(2000px) rotate(-10deg);
+  // box-shadow:inset 20px 0 50px rgba(0,0,0,0.5);
+}
+
+.card .img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  transform-origin: left;
+  z-index: 1;
+  // transition:1s;
+}
+
+.card .img-container img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card:hover img {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+.card .card-details {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  color: #000;
+}
