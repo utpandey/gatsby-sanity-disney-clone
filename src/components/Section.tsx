@@ -74,7 +74,7 @@ const Section = ({ genre, videos }: IProps) => {
                 partialVisible={true}
             > */}
       <div className="row">
-        <div className="row__inner overflow-y-hidden flex flex-row">
+        <div className="row__inner flex flex-row">
           {videos.map((video, i) => (
             i === 0 ?
             <a key={video?.video?.asset?.assetId} href={`/video/${video?.slug?.current}`}>
